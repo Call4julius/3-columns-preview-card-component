@@ -48,6 +48,7 @@ textarea {
   /* neutral */
   --clr-white: hsla(0, 0%, 100%, 0.75);
   --clr-very-light-gray: hsl(0, 0%, 95%);
+  --clr-transparent: hsl(0, 0%, 95%, 0);
 
   /* TYPOGRAPHY */
   --ff-primary: "Lexend Deca", sans-serif;
@@ -108,9 +109,6 @@ main {
 .container [class*="card--"] {
   background-color: var(--card-clr, brown);
   padding: 2.5rem;
-}
-
-.container [class*="card--"] {
   gap: 2.5rem;
 }
 
@@ -142,17 +140,25 @@ main {
   font-weight: var(--fw-700);
   text-decoration: none;
   text-align: center;
-  background-color: var(--clr-very-light-gray);
+  background-image: linear-gradient(
+    to right,
+    var(--clr-very-light-gray) 50%,
+    var(--clr-transparent) 50%
+  );
+  background-size: 23rem;
+  background-position: left;
   border-radius: 100px;
   border: 2px solid var(--clr-very-light-gray);
+  margin-top: 2.5rem;
   padding: 0.5rem 1.5rem;
   align-self: end;
   width: 11.5rem;
+  transition: background-position 0.6s ease-in-out, color 0.75s ease-in-out;
 }
 
 .container [class*="card--"] .button:is(:focus, :hover) {
   color: var(--clr-very-light-gray);
-  background-color: transparent;
+  background-position: right;
 }
 
 /* ATTRIBUTION */
